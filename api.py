@@ -1,4 +1,5 @@
 import os
+import json
 
 if os.getenv('DEVELOPMENT') is not None:
     from dotenv import load_dotenv
@@ -15,7 +16,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, FollowEvent
+    MessageEvent, TextMessage, TextSendMessage, FollowEvent, FlexSendMessage
 )
 
 app = Flask(__name__)
@@ -63,6 +64,12 @@ def handle_follow(event):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text="you have followed me!")
+    )
+    with open('emergency_button.json',) as file:
+        flex_emergency = json.loads(file.read())
+    line_bot_api.reply_message(
+        event.reply_token,
+        FlexSendMessage(alt_text="emergency_button", contents= flex_emergency)
     )
 
 @handler.add(MessageEvent, message=TextMessage)
