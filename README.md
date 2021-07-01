@@ -1,4 +1,9 @@
 # NYCU-Innovation
+Set remote repo: `heroku git:remote -a nycu-innovation`
+Check status: `git remote -v`
+
+
+# Resources
 
 Messaging API: https://developers.line.biz/en/docs/messaging-api/
 
