@@ -73,7 +73,7 @@ def handle_follow(event):
     line_bot_api.reply_message(
         event.reply_token,
         FlexSendMessage(
-            alt_text="emergency_button", 
+            alt_text='emergency_button', 
             contents= {
                 "type": "bubble",
                 "hero": {
