@@ -58,9 +58,16 @@ def callback():
 # CSV Example
 import csv
 
+@handler.add(FollowEvent)
+def handle_follow(event):
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text="you have followed me!")
+    )
 
 @handler.add(MessageEvent, message=TextMessage)
 def message_text(event):
+    message = event.message.text
     print(event)
     print("!!!!!!!!!!!!!!!!!!!!!")
     line_bot_api.reply_message(
