@@ -6,6 +6,8 @@ Tail logs live: `heroku logs -t `
 
 # Resources
 
+Documentation: https://github.com/line/line-bot-sdk-python  
+
 Messaging API: https://developers.line.biz/en/docs/messaging-api/
 
 Flex Simulator: https://developers.line.biz/flex-simulator/
