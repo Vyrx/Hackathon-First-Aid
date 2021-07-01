@@ -61,7 +61,7 @@ import csv
 
 @handler.add(MessageEvent, message=TextMessage)
 def message_text(event):
-        print(event)
+    print(event)
     print("!!!!!!!!!!!!!!!!!!!!!")
     line_bot_api.reply_message(
         event.reply_token,
