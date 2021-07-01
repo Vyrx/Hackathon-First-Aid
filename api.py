@@ -61,10 +61,10 @@ import csv
 
 @handler.add(FollowEvent)
 def handle_follow(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text="you have followed me!")
-    )
+    # line_bot_api.reply_message(
+    #     event.reply_token,
+    #     TextSendMessage(text="you have followed me!")
+    # )
     with open('emergency_button.json',) as file:
         flex_emergency = json.loads(file.read())
     print("!!!!!!!!!!!! CONTENTS")
@@ -223,7 +223,8 @@ def handle_follow(event):
                 ],
                 "flex": 0
                 }
-            })
+            }
+        )
     )
 
 
