@@ -1,6 +1,7 @@
 # NYCU-Innovation
 Set remote repo: `heroku git:remote -a nycu-innovation`  
-Check status: `git remote -v`
+Check status: `git remote -v`  
+Tail logs live: `heroku logs -t `
 
 
 # Resources
