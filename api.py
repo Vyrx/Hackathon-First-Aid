@@ -74,18 +74,7 @@ def handle_follow(event):
         event.reply_token,
         FlexSendMessage(
             alt_text='emergency_button', 
-            contents= {
-                'type': 'bubble',
-                'direction': 'ltr',
-                'hero': {
-                    'type': 'image',
-                    'url': 'https://engineering.linecorp.com/wp-content/uploads/2021/04/%E6%88%AA%E5%9C%96-2021-04-23-%E4%B8%8B%E5%8D%883.00.15.png',
-                    'size': 'full',
-                    'aspectRatio': '100:100',
-                    'aspectMode': 'cover',
-                    'action': {'type': 'uri', 'uri': 'http://example.com', 'label': 'label'}
-                }
-            }
+            contents= flex_emergency
         )
     )
 
