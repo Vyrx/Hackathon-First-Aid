@@ -69,7 +69,7 @@ def handle_follow(event):
         flex_emergency = json.loads(file.read())
     print("!!!!!!!!!!!! CONTENTS")
     print(flex_emergency)
-    print(type(flex_emergency))
+    print(type(json.dumps(flex_emergency)))
     line_bot_api.reply_message(
         event.reply_token,
         FlexSendMessage(
