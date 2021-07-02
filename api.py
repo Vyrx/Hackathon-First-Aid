@@ -75,6 +75,13 @@ def handle_follow(event):
             contents= flex_emergency
         )
     )
+    
+@handler.add(FollowEvent)
+def handle_follow_reply(event):
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text="you have followed me!")
+    )
 
 
 @handler.add(MessageEvent, message=TextMessage)

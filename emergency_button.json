@@ -15,9 +15,10 @@
           {
             "type": "button",
             "action": {
-              "type": "message",
+              "type": "postback",
               "label": "action",
-              "text": "hihi"
+              "data": "hello",
+              "displayText": "Display text"
             }
           }
         ]
