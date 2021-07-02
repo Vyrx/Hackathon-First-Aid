@@ -55,34 +55,22 @@ def callback():
 
     return 'OK'
 
-
-# CSV Example
-import csv
-
-@handler.add(FollowEvent)
-def handle_follow(event):
-    # line_bot_api.reply_message(
-    #     event.reply_token,
-    #     TextSendMessage(text="you have followed me!")
-    # )
-    with open('emergency_button.json',) as file:
-        flex_emergency = json.loads(file.read())
-    print("!!!!!!!!!!!! CONTENTS")
-    line_bot_api.reply_message(
-        event.reply_token,
-        FlexSendMessage(
-            alt_text='emergency_button', 
-            contents= flex_emergency
-        )
-    )
-    
-@handler.add(FollowEvent)
-def handle_follow_reply(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text="you have followed me!")
-    )
-
+# @handler.add(FollowEvent)
+# def handle_follow(event):
+#     # line_bot_api.reply_message(
+#     #     event.reply_token,
+#     #     TextSendMessage(text="you have followed me!")
+#     # )
+#     with open('emergency_button.json',) as file:
+#         flex_emergency = json.loads(file.read())
+#     print("!!!!!!!!!!!! CONTENTS")
+#     line_bot_api.reply_message(
+#         event.reply_token,
+#         FlexSendMessage(
+#             alt_text='emergency_button', 
+#             contents= flex_emergency
+#         )
+#     )  
 
 @handler.add(MessageEvent, message=TextMessage)
 def message_text(event):
