@@ -1,0 +1,43 @@
+{
+  "type": "bubble",
+  "header": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": []
+  },
+  "hero": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Hello, is there an accident?",
+        "align": "center"
+      }
+    ]
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "button",
+        "action": {
+          "type": "postback",
+          "label": "Yes",
+          "data": "accident_yes",
+          "displayText": "Yes"
+        }
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "postback",
+          "label": "No",
+          "data": "accident_no",
+          "displayText": "No"
+        }
+      }
+    ]
+  }
+}

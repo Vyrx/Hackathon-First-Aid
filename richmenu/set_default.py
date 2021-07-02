@@ -17,5 +17,5 @@ line_bot_api = LineBotApi(channel_access_token)
 
 # Example: https://github.com/line/line-bot-sdk-python#set_default_rich_menuself-rich_menu_id-timeoutnone
 # Document: https://developers.line.biz/en/reference/messaging-api/#set-default-rich-menu
-rich_menu_id = 'richmenu-3514661b0c16b00d8fb380b1a9a4c901'
+rich_menu_id = 'richmenu-75ea88b0f9435db94f160e81f325764c'
 line_bot_api.set_default_rich_menu(rich_menu_id)

@@ -1,0 +1,52 @@
+{
+    "type": "bubble",
+    "header": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": []
+    },
+    "hero": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "What kind of accident?",
+          "align": "center"
+        }
+      ]
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "Fainting",
+            "data": "accident_type_fainting",
+            "displayText": "Fainting"
+          }
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "Bleeding",
+            "data": "accident_type_bleeding",
+            "displayText": "Bleeding"
+          }
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "Not Sure (Take a Photo)",
+            "data": "accident_type_notsure",
+            "displayText": "I'm not sure"
+          }
+        }
+      ]
+    }
+  }

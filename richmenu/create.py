@@ -5,6 +5,8 @@ from linebot import LineBotApi
 
 import os
 
+from linebot.models.actions import MessageAction
+
 try:
     channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN') or 'YOUR_SECRET'
 except:
@@ -20,13 +22,26 @@ line_bot_api = LineBotApi(channel_access_token)
 # Document: https://developers.line.biz/en/reference/messaging-api/#create-rich-menu
 
 rich_menu_to_create = RichMenu(
-    size=RichMenuSize(width=2500, height=843),
+    size=RichMenuSize(width=2495, height=1474),
     selected=False,
-    name="Nice richmenu",
+    name="Main Richmenu",
     chat_bar_text="Tap here", 
     areas=[RichMenuArea(
-        bounds=RichMenuBounds(x=0, y=0, width=2500, height=1686),
-        action=URIAction(label='Go to line.me', uri='https://line.me'))]
+        bounds=RichMenuBounds(x=831, y=0, width=831, height=1474),
+        action=MessageAction(label='emergency', text='I have an emergency')),
+        RichMenuArea(
+        bounds=RichMenuBounds(x=0, y=0, width=831, height=737),
+        action=MessageAction(label='consult_doctor', text='I want to consult a doctor')),
+        RichMenuArea(
+        bounds=RichMenuBounds(x=0, y=737, width=831, height=737),
+        action=MessageAction(label='medical_data', text='Open medical data')),
+        RichMenuArea(
+        bounds=RichMenuBounds(x=1662, y=0, width=831, height=737),
+        action=MessageAction(label='video_data', text='I want to video call with an emergency professional')),
+        RichMenuArea(
+        bounds=RichMenuBounds(x=1662, y=737, width=831, height=737),
+        action=URIAction(label='learning_centre', uri='https://event.oia.nycu.edu.tw/'))
+        ]
 )
 rich_menu_id = line_bot_api.create_rich_menu(rich_menu=rich_menu_to_create)
 print(rich_menu_id)

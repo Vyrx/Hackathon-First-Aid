@@ -16,7 +16,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, FollowEvent, FlexSendMessage
+    MessageEvent, TextMessage, TextSendMessage, FollowEvent, FlexSendMessage, PostbackEvent
 )
 
 app = Flask(__name__)
@@ -32,7 +32,6 @@ if channel_access_token is None:
     print('Specify LINE_CHANNEL_ACCESS_TOKEN as environment variable.')
     sys.exit(1)
 
-print(channel_secret)
 
 line_bot_api = LineBotApi(channel_access_token)
 handler = WebhookHandler(channel_secret)
@@ -68,7 +67,7 @@ def handle_follow(event):
             )
         )
     except:
-        print("!!!!!!!!!!!!! Can't send flex emssage")
+        print("!!!!!!!!!!!!! Can't send flex message")
     print("!!!!!!!!!!!!!! USER ID") 
     print(event.source.user_id) 
     line_bot_api.push_message(
@@ -76,15 +75,67 @@ def handle_follow(event):
         TextSendMessage(text="you have followed me!")
     )
 
+
+
 @handler.add(MessageEvent, message=TextMessage)
 def message_text(event):
     message = event.message.text
-    print(event)
-    print("!!!!!!!!!!!!!!!!!!!!!")
+    if message == 'I have an emergency':
+        try: 
+            with open('flex_json/accident_flex.json',) as file:
+                flex_file = json.loads(file.read())
+        except:
+            Exception("Can't open json")
+
+        line_bot_api.reply_message(
+            event.reply_token,
+            FlexSendMessage(
+                alt_text='accident_flex', 
+                contents= flex_file
+            )
+        )
+    
+current_event = 0
+
+def flex_display_accident_type(event):
+    try: 
+        with open('flex_json/accident_type_flex.json',) as file:
+            flex_file = json.loads(file.read())
+    except:
+        Exception("Can't open json")
+
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text="bye")
+        FlexSendMessage(
+            alt_text='accident_type_flex', 
+            contents= flex_file
+        )
     )
+
+@handler.add(PostbackEvent)  
+def handle_postback(event):
+    if event.postback.data == 'accident_yes':
+        print("There is an accident")
+        flex_display_accident_type(event)
+
+    elif event.postback.data == 'accident_no':
+        print("There is no accident") 
+
+    elif event.postback.data == 'something_else':
+        print("current event is one")       
+
+    print(event.postback.data)   
+
+@handler.add(PostbackEvent)
+def handle_accident_type(event):
+    if event.postback.data == 'accident_yes':
+        print("There is an accident")
+    elif event.postback.data == 'accident_no':
+        print("There is no accident")
+    elif event.postback.data == 'something_else':
+        print("current event is one")       
+
+    print(event.postback.data)  
 
 
 if __name__ == "__main__":
