@@ -68,8 +68,6 @@ def handle_follow(event):
     with open('emergency_button.json',) as file:
         flex_emergency = json.loads(file.read())
     print("!!!!!!!!!!!! CONTENTS")
-    print(flex_emergency)
-    print(type(json.dumps(flex_emergency)))
     line_bot_api.reply_message(
         event.reply_token,
         FlexSendMessage(
