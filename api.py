@@ -70,11 +70,11 @@ def handle_follow(event):
     except:
         print("!!!!!!!!!!!!! Can't send flex emssage")
     print("!!!!!!!!!!!!!! USER ID") 
-    print(event.source.user) 
-    # line_bot_api.push_message(
-    #     event.reply_token,
-    #     TextSendMessage(text="you have followed me!")
-    # )
+    print(event.source.user_id) 
+    line_bot_api.push_message(
+        event.source.user_id,
+        TextSendMessage(text="you have followed me!")
+    )
 
 @handler.add(MessageEvent, message=TextMessage)
 def message_text(event):
