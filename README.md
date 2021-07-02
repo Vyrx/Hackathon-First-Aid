@@ -1,4 +1,13 @@
 # NYCU-Innovation
+
+# Start a local server
+
+Type `npx ngrok http -region=ap --host-header=rewrite 5000`  
+Change webhook
+
+
+# Heroku
+
 Set remote repo: `heroku git:remote -a nycu-innovation`  
 Check status: `git remote -v`  
 Tail logs live: `heroku logs -t `
