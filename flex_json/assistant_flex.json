@@ -11,7 +11,7 @@
       "contents": [
         {
           "type": "text",
-          "text": "What kind of accident?",
+          "text": "Are you the assistant of the victim?",
           "align": "center"
         }
       ]
@@ -24,18 +24,18 @@
           "type": "button",
           "action": {
             "type": "postback",
-            "label": "Fainting",
-            "data": "accident_type_fainting",
-            "displayText": "Fainting"
+            "label": "Yes",
+            "data": "assistant_yes",
+            "displayText": "Yes"
           }
         },
         {
           "type": "button",
           "action": {
             "type": "postback",
-            "label": "Bleeding",
-            "data": "accident_type_bleeding",
-            "displayText": "Bleeding"
+            "label": "No",
+            "data": "assistant_no",
+            "displayText": "No"
           }
         }
       ]

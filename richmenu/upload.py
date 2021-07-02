@@ -21,7 +21,7 @@ content_type = 'image/png'  # Just support JPEG or PNG, check your image type
 
 try:
     with open('rich_ui.png', 'rb') as f:
-        line_bot_api.set_rich_menu_image('richmenu-75ea88b0f9435db94f160e81f325764c', content_type, f)
+        line_bot_api.set_rich_menu_image('richmenu-fa22771d79875ed58b75b1ea5ba3f295', content_type, f)
 except Exception as e:
     print(e)
 

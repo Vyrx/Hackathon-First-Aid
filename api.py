@@ -94,20 +94,18 @@ def message_text(event):
                 contents= flex_file
             )
         )
-    
-current_event = 0
 
-def flex_display_accident_type(event):
+def flex_display(event, flex_name):
     try: 
-        with open('flex_json/accident_type_flex.json',) as file:
+        with open('flex_json/' + flex_name + '.json',) as file:
             flex_file = json.loads(file.read())
     except:
-        Exception("Can't open json")
+        print("!!!!!!!!!!!!!!! Can't open json !!!!!!!!!!!!!!!")
 
     line_bot_api.reply_message(
         event.reply_token,
         FlexSendMessage(
-            alt_text='accident_type_flex', 
+            alt_text= flex_name, 
             contents= flex_file
         )
     )
@@ -116,26 +114,44 @@ def flex_display_accident_type(event):
 def handle_postback(event):
     if event.postback.data == 'accident_yes':
         print("There is an accident")
-        flex_display_accident_type(event)
+        flex_display(event, 'accident_type_flex')
 
     elif event.postback.data == 'accident_no':
         print("There is no accident") 
 
     elif event.postback.data == 'something_else':
-        print("current event is one")       
+        print("current event is one")  
 
-    print(event.postback.data)   
+    # ACCIDENT TYPE
+    elif event.postback.data == 'accident_type_fainting':
+        print("Fainting")
+        flex_display(event, 'assistant_flex')
+    elif event.postback.data == 'accident_type_bleeding':
+        print("Bleeding")
+        flex_display(event, 'assistant_flex')
 
-@handler.add(PostbackEvent)
-def handle_accident_type(event):
-    if event.postback.data == 'accident_yes':
-        print("There is an accident")
-    elif event.postback.data == 'accident_no':
-        print("There is no accident")
-    elif event.postback.data == 'something_else':
-        print("current event is one")       
+    # ASSISTANT
+    elif event.postback.data == 'assistant_yes':
+        print("Assistant of the victim")
+        flex_display(event, 'victim_count_flex')
+    elif event.postback.data == 'assistant_no':
+        print("Not an assistant of the victim")
+        flex_display(event, 'victim_count_flex')
 
-    print(event.postback.data)  
+    # VICTIM COUNT
+    elif event.postback.data == 'victim_count_one':
+        print("One victim")
+        flex_display(event, 'victim_flex')
+    elif event.postback.data == 'victim_count_more':
+        print("More than one victim") 
+        flex_display(event, 'victim_flex')
+    
+    #################
+
+    # LEARNING CENTRE
+    elif event.postback.data == 'learning_centre':
+        flex_display(event, 'learning_centre_2')
+
 
 
 if __name__ == "__main__":

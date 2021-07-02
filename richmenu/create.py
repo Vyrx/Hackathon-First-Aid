@@ -5,7 +5,7 @@ from linebot import LineBotApi
 
 import os
 
-from linebot.models.actions import MessageAction
+from linebot.models.actions import MessageAction, PostbackAction
 
 try:
     channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN') or 'YOUR_SECRET'
@@ -40,7 +40,7 @@ rich_menu_to_create = RichMenu(
         action=MessageAction(label='video_data', text='I want to video call with an emergency professional')),
         RichMenuArea(
         bounds=RichMenuBounds(x=1662, y=737, width=831, height=737),
-        action=URIAction(label='learning_centre', uri='https://event.oia.nycu.edu.tw/'))
+        action=PostbackAction(label ='learning_centre', data='learning_centre'))
         ]
 )
 rich_menu_id = line_bot_api.create_rich_menu(rich_menu=rich_menu_to_create)

@@ -1,0 +1,46 @@
+{
+    "type": "bubble",
+    "hero": {
+      "type": "image",
+      "url": "https://i.ytimg.com/vi_webp/h_WYZFC5USk/maxresdefault.webp",
+      "size": "full",
+      "aspectRatio": "20:13",
+      "aspectMode": "cover",
+      "action": {
+        "type": "uri",
+        "uri": "https://www.youtube.com/watch?v=h_WYZFC5USk&t=221s"
+      },
+      "position": "relative"
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "Learn How to do CPR ",
+          "weight": "bold",
+          "action": {
+            "type": "uri",
+            "label": "action",
+            "uri": "https://www.youtube.com/watch?v=h_WYZFC5USk&t=221s"
+          }
+        },
+        {
+          "type": "text",
+          "text": "[Cardiopulmonary Resuscitation]",
+          "weight": "bold",
+          "action": {
+            "type": "uri",
+            "label": "action",
+            "uri": "https://www.youtube.com/watch?v=h_WYZFC5USk&t=221s"
+          }
+        }
+      ],
+      "action": {
+        "type": "uri",
+        "label": "action",
+        "uri": "https://www.youtube.com/watch?v=-Yqk5cHXsko"
+      }
+    }
+  }

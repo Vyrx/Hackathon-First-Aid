@@ -11,7 +11,7 @@
       "contents": [
         {
           "type": "text",
-          "text": "What kind of accident?",
+          "text": "How many victims are there?",
           "align": "center"
         }
       ]
@@ -24,18 +24,18 @@
           "type": "button",
           "action": {
             "type": "postback",
-            "label": "Fainting",
-            "data": "accident_type_fainting",
-            "displayText": "Fainting"
+            "label": "1",
+            "data": "victim_count_one",
+            "displayText": "1"
           }
         },
         {
           "type": "button",
           "action": {
             "type": "postback",
-            "label": "Bleeding",
-            "data": "accident_type_bleeding",
-            "displayText": "Bleeding"
+            "label": "More",
+            "data": "victim_count_more",
+            "displayText": "More"
           }
         }
       ]
