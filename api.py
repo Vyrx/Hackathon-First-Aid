@@ -16,7 +16,8 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, FollowEvent, FlexSendMessage, PostbackEvent
+    MessageEvent, TextMessage, TextSendMessage, FollowEvent, FlexSendMessage, PostbackEvent,
+    QuickReply, QuickReplyButton, LocationAction
 )
 
 app = Flask(__name__)
@@ -81,19 +82,20 @@ def handle_follow(event):
 def message_text(event):
     message = event.message.text
     if message == 'I have an emergency':
-        try: 
-            with open('flex_json/accident_flex.json',) as file:
-                flex_file = json.loads(file.read())
-        except:
-            Exception("Can't open json")
+        flex_display(event, 'accident_flex')
 
-        line_bot_api.reply_message(
-            event.reply_token,
-            FlexSendMessage(
-                alt_text='accident_flex', 
-                contents= flex_file
-            )
+        quick_reply = QuickReply(
+            items = [
+                QuickReplyButton(action=LocationAction(label="Location"))
+            ]
         )
+
+        line_bot_api.push_message(
+            event.source.user_id,
+            TextSendMessage(text="Please also send your location", quick_reply=quick_reply)
+        )
+
+
 
 def flex_display(event, flex_name):
     try: 
@@ -102,8 +104,8 @@ def flex_display(event, flex_name):
     except:
         print("!!!!!!!!!!!!!!! Can't open json !!!!!!!!!!!!!!!")
 
-    line_bot_api.reply_message(
-        event.reply_token,
+    line_bot_api.push_message(
+        event.source.user_id,
         FlexSendMessage(
             alt_text= flex_name, 
             contents= flex_file
@@ -150,6 +152,7 @@ def handle_postback(event):
 
     # LEARNING CENTRE
     elif event.postback.data == 'learning_centre':
+        flex_display(event, 'learning_centre')
         flex_display(event, 'learning_centre_2')
 
 

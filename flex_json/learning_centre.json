@@ -1,0 +1,46 @@
+{
+    "type": "bubble",
+    "hero": {
+      "type": "image",
+      "url": "https://i.ytimg.com/vi_webp/KBQZjsKrUBo/maxresdefault.webp",
+      "size": "full",
+      "aspectRatio": "20:13",
+      "aspectMode": "cover",
+      "action": {
+        "type": "uri",
+        "uri": "https://www.youtube.com/watch?v=KBQZjsKrUBo"
+      },
+      "position": "relative"
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "Learn what to do in",
+          "weight": "bold",
+          "action": {
+            "type": "uri",
+            "label": "action",
+            "uri": "https://www.youtube.com/watch?v=KBQZjsKrUBo"
+          }
+        },
+        {
+          "type": "text",
+          "text": "Breathing Problem",
+          "weight": "bold",
+          "action": {
+            "type": "uri",
+            "label": "action",
+            "uri": "https://www.youtube.com/watch?v=KBQZjsKrUBo"
+          }
+        }
+      ],
+      "action": {
+        "type": "uri",
+        "label": "action",
+        "uri": "https://www.youtube.com/watch?v=KBQZjsKrUBo"
+      }
+    }
+  }
